@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Launch System</title>
+    <link rel="stylesheet" href="color.css">
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="moon">
+        <div class="crater crater1"></div>
+        <div class="crater crater2"></div>
+        <div class="crater crater3"></div>
+    </div>
+
+    <header>
+        <h1>ROCKET LAUNCH SYSTEM</h1>
+        <p id="subtitle">Preparing lunar mission...</p>
+    </header>
+
+    <div class="rocket" id="rocket">
+        🚀
+    </div>
+
+    <div class="landing" id="landing">
+        <div class="platform"></div>
+        <p>LANDING ZONE</p>
+    </div>
+
+    <main class="login-box" id="loginBox">
+        <h2>MISSION CONTROL</h2>
+        <p class="description">Authenticate to launch</p>
+
+        <form id="loginForm">
+            <input
+                type="text"
+                id="astronaut"
+                placeholder="Astronaut ID"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Access password"
+                required
+            >
+
+            <button type="submit">LAUNCH</button>
+        </form>
+
+        <p id="message">System ready...</p>
+    </main>
+
+    <div class="success" id="success">
+        <h1>ACCESS GRANTED</h1>
+        <h2>MISSION COMPLETE</h2>
+        <p>Welcome, Astronaut!</p>
+    </div>
+
+    <script src="accion.js"></script>
+</body>
+</html>

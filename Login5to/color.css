@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at center, #142c57, #050817 75%);
+    color: white;
+}
+
+/* ESTRELLAS */
+
+.stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#8ccfff 1px, transparent 1px);
+    background-size: 45px 45px, 75px 75px;
+    background-position: 0 0, 20px 30px;
+    animation: starsMove 30s linear infinite;
+}
+
+@keyframes starsMove {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100px);
+    }
+}
+
+/* LUNA */
+
+.moon {
+    position: absolute;
+    top: 12%;
+    right: 10%;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #f4f3dc;
+    box-shadow: 0 0 35px #b9dfff, 0 0 90px #83baff;
+}
+
+.crater {
+    position: absolute;
+    background: #d0d0c0;
+    border-radius: 50%;
+    opacity: .6;
+}
+
+.crater1 {
+    width: 25px;
+    height: 25px;
+    top: 25px;
+    left: 30px;
+}
+
+.crater2 {
+    width: 18px;
+    height: 18px;
+    bottom: 25px;
+    right: 30px;
+}
+
+.crater3 {
+    width: 13px;
+    height: 13px;
+    top: 70px;
+    left: 75px;
+}
+
+/* TITULO */
+
+header {
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px #50cfff;
+}
+
+header p {
+    margin-top: 12px;
+    color: #a8c9ff;
+    font-style: italic;
+}
+
+/* COHETE */
+
+.rocket {
+    position: absolute;
+    top: 18%;
+    right: 13%;
+    font-size: 65px;
+    transform: rotate(135deg);
+    z-index: 5;
+    transition: none;
+}
+
+/* ATERRIZAJE */
+
+.landing {
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    opacity: 0;
+}
+
+.platform {
+    width: 150px;
+    height: 8px;
+    background: linear-gradient(90deg, #39dfff, white, #39dfff);
+    border-radius: 20px;
+    box-shadow: 0 0 20px #35cfff;
+}
+
+.landing p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 12px;
+    color: #7eeaff;
+}
+
+/* LOGIN */
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 320px;
+    padding: 28px;
+    text-align: center;
+    border: 1px solid #74dfff;
+    border-radius: 18px;
+    background: rgba(12, 28, 58, .92);
+    box-shadow: 0 0 30px rgba(0, 190, 255, .35);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.login-box h2 {
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+
+.description {
+    margin: 12px 0 22px;
+    color: #9ebbe9;
+    font-size: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 12px;
+    border: 1px solid #579bc9;
+    border-radius: 8px;
+    outline: none;
+    background: #102344;
+    color: white;
+}
+
+input:focus {
+    border-color: #50e5ff;
+    box-shadow: 0 0 10px #39cfff;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #c66bff, #32dfff);
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 20px #46dfff;
+}
+
+#message {
+    margin-top: 16px;
+    color: #78e9ff;
+    font-size: 12px;
+}
+
+/* ANIMACION DEL COHETE */
+
+.rocket.fly {
+    animation: flyRocket 3.5s ease-in-out forwards;
+}
+
+@keyframes flyRocket {
+    0% {
+        top: 18%;
+        right: 13%;
+        transform: rotate(135deg);
+    }
+
+    50% {
+        top: 40%;
+        right: 45%;
+        transform: rotate(180deg);
+    }
+
+    100% {
+        top: 72%;
+        right: 47%;
+        transform: rotate(180deg);
+    }
+}
+
+/* APARICION DEL LOGIN */
+
+.login-box.show {
+    animation: showLogin 1.3s ease forwards;
+}
+
+@keyframes showLogin {
+    from {
+        opacity: 0;
+        visibility: visible;
+        transform: translate(-50%, -35%) scale(.7);
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.landing.show {
+    animation: showLanding 1s forwards;
+}
+
+@keyframes showLanding {
+    to {
+        opacity: 1;
+    }
+}
+
+/* MENSAJE FINAL */
+
+.success {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 12, 30, .96);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.success h1 {
+    color: #42eaff;
+    text-shadow: 0 0 20px #00cfff;
+    letter-spacing: 4px;
+}
+
+.success h2 {
+    color: white;
+    letter-spacing: 3px;
+}
+
+.success p {
+    color: #9bcaff;
+}
+
+@media(max-width: 500px) {
+    header h1 {
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+
+    .moon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .login-box {
+        width: 290px;
+    }
+}
